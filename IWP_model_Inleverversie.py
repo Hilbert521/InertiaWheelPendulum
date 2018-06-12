@@ -9,9 +9,9 @@ import pandas as pd
 from numpy import *             # Grab all of the NumPy functions
 from matplotlib.pyplot import * # Grab MATLAB plotting functions
 
-num_of_simulations  = 1
+num_of_simulations  = 10
 
-run_once            = True
+run_once            = True #Turn this off if step_start_states is True
 show_simulation     = True
 show_phase_space	= True
 save_output_files   = False
@@ -210,28 +210,33 @@ for file_num in range(num_of_simulations):
         figure(1)
         subplot(221)
         plot( X, Y[2,:])
+        grid(True)
         title("Position Wheel")
         xlabel("Time, Seconds")
         ylabel("Radians")
         subplot(222)
         plot( X, Y[3,:])
+        grid(True)
         title("Velocity Wheel")
         xlabel("Time, Seconds")
         ylabel("Radians/second")
         subplot(223)
         plot( X, Y[0,:])
+        grid(True)
         title("Position Pendulum")
         xlabel("Time, Seconds")
         ylabel("Radians")
         subplot(224)
         plot( X, Y[1,:])
+        grid(True)
         title("Velocity Pendulum")
         xlabel("Time, Seconds")
         ylabel("Radians/second")
 
         #energy plot
         figure(2)
-        plot( X, E)
+        plot(X, E)
+        grid(True)
         title("Pendulum Energy Error")
         xlabel("Time, Seconds")
         ylabel("Energy error, Joules")
@@ -259,11 +264,12 @@ for file_num in range(num_of_simulations):
 
 if show_phase_space: #If true plot the phase space, the number of trajectories plotted is equal to the number of simulations run
     figure(9)
+    grid(True)
     title("Pendulum Joint, Phase Space plot")
     xlabel("Radians, pendulum position")
     ylabel("Radians/Second, pendulum Velocity")
     hold(True)
     for i in range(len(Y_list_0)):
-        plot(Y_list_0[i], Y_list_1[i])
+            plot(Y_list_0[i], Y_list_1[i])
 
 show()

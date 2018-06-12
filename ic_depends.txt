@@ -1,0 +1,21 @@
+# Requirements list for pip to run the IC_miniproject,
+# This script runs on python 2.7
+#
+# Run the script on the next line to install the depends:
+# sudo pip install -r ic_depends.txt
+#
+
+# IO management
+pandas
+# Matlablike Linear Control Systems functions, (ended up not using these)
+#slycot
+#control 
+
+# Math depends
+numpy
+
+# Graphing depends
+# The backend might be causing problems, this might need to be changed to run the script.
+matplotlib
+pillow
+
